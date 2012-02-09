@@ -57,7 +57,6 @@ sub _start {
      $irc->plugin_add( 'MehSelf', $self );
      $irc->plugin_add( 'Connector', POE::Component::IRC::Plugin::Connector->new() );
      $irc->plugin_add( 'CTCP', POE::Component::IRC::Plugin::CTCP->new( version => join(" ", $self->{initial}, "POE::Component::IRC-$POE::Component::IRC::VERSION", "POE-$POE::VERSION" ) ) );
-     $irc->plugin_add( 'POEKnee', POEKnee->new() );
      if ( $network =~ /quakenet\.org$/ ) {
        $irc->plugin_add( 'Qauth', Qauth->new( qauth => $self->{config}->{ $network }->{qauth}, qpass => $self->{config}->{ $network }->{qpass} ) );
      }
